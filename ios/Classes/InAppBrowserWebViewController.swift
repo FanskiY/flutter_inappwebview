@@ -301,6 +301,9 @@ class InAppBrowserWebViewController: UIViewController, UIScrollViewDelegate, WKU
     @objc func close() {
         //currentURL = nil
         
+        let url = URL(string: "about:blank")
+	    let requestObj = URLRequest(url: url! as URL)
+	    webView.load(requestObj)
         weak var weakSelf = self
         
         if (weakSelf?.responds(to: #selector(getter: self.presentingViewController)))! {
